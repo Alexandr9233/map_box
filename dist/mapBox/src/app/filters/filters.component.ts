@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { DataService } from "../data.service";
 
 @Component({
@@ -6,13 +6,22 @@ import { DataService } from "../data.service";
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
-export class FiltersComponent {
+export class FiltersComponent implements OnInit{
 
   @ViewChildren('typeOfAccidentCheckbox') typeOfAccidentCheckbox: QueryList<ElementRef>;
 
   constructor(public dataService: DataService) { }
 
-  public filterIsClicked(index: number): void{
+  ngOnInit(): void {
+    this.dataService.viewOfMap.subscribe(() => {
+      this.typeOfAccidentCheckbox.toArray().forEach(el => {
+        el.nativeElement.checked = false
+      })
+    })
+  }
+
+  public filterIsClicked(index: number): void {
+    console.log(this.typeOfAccidentCheckbox.toArray())
     this.dataService.changeFilters(this.typeOfAccidentCheckbox.toArray()[index]);
   }
 
