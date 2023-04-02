@@ -1,0 +1,19 @@
+<ng-template #listOfMaps let-views="views">
+  <div class="list-wrap" *ngIf="isListOfMaps">
+    <button *ngFor="let view of views" (click)="onChangeView(view)">
+      {{view.name}}
+    </button>
+  </div>
+</ng-template>
+
+<h1 class="title">Информация о дорожно-транcпортных происшествиях (ДТП)</h1>
+<div class="container">
+  <app-map></app-map>
+  <app-filters></app-filters>
+</div>
+<div class="chosen-wrap">
+  <button class="maps-view-btn" (click)="onClickMapsViewBtn()">{{mapsViewBtnTitle}}</button>
+  <div class="maps-list-wrap">
+    <ng-container *ngTemplateOutlet="listOfMaps; context: {views: mapboxStyles}" ></ng-container>
+  </div>
+</div>

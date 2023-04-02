@@ -1,0 +1,45 @@
+.title {
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+  @media(max-width: 650px) {
+    font-size: 28px;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 5vh 0;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.chosen-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .cards-view-btn {
+    width: 120px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+  }
+  .maps-view-btn {
+    margin-bottom: 12px;
+  }
+}
+
+.maps-list-wrap {
+  display: flex;
+  justify-content: center;
+  .list-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+  }
+}
+
