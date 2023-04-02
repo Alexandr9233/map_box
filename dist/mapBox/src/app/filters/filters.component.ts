@@ -21,7 +21,6 @@ export class FiltersComponent implements OnInit{
   }
 
   public filterIsClicked(index: number): void {
-    console.log(this.typeOfAccidentCheckbox.toArray())
     this.dataService.changeFilters(this.typeOfAccidentCheckbox.toArray()[index]);
   }
 
